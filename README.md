@@ -6,9 +6,12 @@ dcm_qa_me is a simple DICOM to NIfTI validator script to test conversion of Siem
 ## DataSets
 
 * me_FieldMapGRE
+  * Siemens Prisma D13D
   * Gradient Echo Fieldmap
   * Echo Times: 5.19, 7.65ms
-
+  * Note: instance numbers are not unique for this series.
+  
 * me_fMRI
+  * Siemens Prisma D13D
   * T2* BOLD sequence
   * Echo Times: 20.00, 37.83ms

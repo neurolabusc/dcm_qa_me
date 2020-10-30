@@ -12,7 +12,7 @@ exists() {
 # we assume it is in the users path
 # however, this could be set explicitly, e.g.
 #  exenam="/Users/rorden/Documents/cocoa/dcm2niix/console/dcm2niix" batch.sh
-exenam=${examnam:-dcm2niix}
+exenam=${exenam:-dcm2niix}
 
 #basedir is folder with "Ref" and "In" subfolders.
 # we assume it is the same same folder as the script
@@ -55,8 +55,20 @@ if [ ! -z "$(ls $outdir)" ]; then
  rm $outdir/*
 fi
 
+
+# detect big endian https://github.com/rordenlab/dcm2niix/issues/333
+littleEndian=$(echo I | tr -d [:space:] | od -to2 | head -n1 | awk '{print $2}' | cut -c6)
+if [[ $littleEndian == "1" ]]; then
+  #echo "little-endian hardware: retaining little-endian"
+  #return blank so we are compatible with earlier versions of dcm2niix
+  endian=""
+else
+  echo "big-endian hardware: forcing little-endian NIfTIs"
+  endian="--big-endian n"
+fi
+
 # Convert images.
-cmd="$exenam -b y -z n -f %p_%s -o $outdir $indir"
+cmd="$exenam $endian -b y -z n -f %p_%s -o $outdir $indir"
 echo "Running command:"
 echo $cmd
 $cmd
