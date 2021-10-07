@@ -49,7 +49,9 @@
 	"PulseSequenceDetails": "%CustomerSeq%\\cmrr_mbep2d_bold",
 	"WipMemBlock": "930a8c50-b81c-4300-92fa-008e6f052578||Sequence: R016 vd13d/master r/8670bde6; Nov 27 2017 15:39:17 by eja",
 	"RefLinesPE": 32,
+	"CoilCombinationMethod": "Sum of Squares",
 	"ConsistencyInfo": "N4_VD13D_LATEST_20130810",
+	"MatrixCoilMode": "GRAPPA",
 	"PercentPhaseFOV": 100,
 	"PercentSampling": 100,
 	"EchoTrainLength": 32,
@@ -102,7 +104,8 @@
 		0,
 		0.998441,
 		-0.0558215	],
+	"ImageOrientationText": "Tra>Cor(-3.2)",
 	"InPlanePhaseEncodingDirectionDICOM": "COL",
 	"ConversionSoftware": "dcm2niix",
-	"ConversionSoftwareVersion": "v1.0.20201030"
+	"ConversionSoftwareVersion": "v1.0.20211006"
 }
